@@ -40,13 +40,12 @@ ActiveRecord::Schema.define(version: 20171107170755) do
 
   create_table "internships", force: :cascade do |t|
     t.string   "name"
-    t.text     "responsibilities"
-    t.text     "qualifications"
+    t.text     "description"
     t.integer  "length"
     t.integer  "hours"
     t.integer  "company_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.index ["company_id"], name: "index_internships_on_company_id", using: :btree
   end
 
