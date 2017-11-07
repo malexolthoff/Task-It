@@ -8,11 +8,19 @@ class InternshipsController < ApplicationController
   end
 
   def new
+    @company = Company.find(params[:company_id])
     @internship = Internship.new
   end
 
   def create
+    @company = Company.find(params[:company_id])
     @internship = Internship.new(internship_params)
+    @internship.company = @company
+    if @internship.save
+      redirect_to company_path(@company)
+    else
+      render :new
+    end
   end
 
   def edit
