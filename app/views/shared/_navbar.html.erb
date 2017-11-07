@@ -1,0 +1,38 @@
+<div class="navbar-wagon">
+  <!-- Logo -->
+  <a href="/" class="navbar-wagon-brand">
+    <%= image_tag('TaskIt_logo.png') %>
+  </a>
+
+  <!-- Right Navigation -->
+  <div class="navbar-wagon-right hidden-xs hidden-sm">
+
+    <%= link_to "Favourites", 'favourites_path', class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "Applications", 'favourites_path', class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "Messages", 'favourites_path', class: "navbar-wagon-item navbar-wagon-link" %>
+
+
+    <!-- Profile picture with dropdown list -->
+    <div class="navbar-wagon-item">
+      <div class="dropdown">
+        <img src="http://dk6kcyuwrpkrj.cloudfront.net/wp-content/uploads/sites/45/2014/05/avatar-blank.jpg" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li><%= link_to "Profile", 'favourites_path', class: "navbar-wagon-item navbar-wagon-link" %></li>
+          <li><%= link_to "Log Out", 'favourites_path', class: "navbar-wagon-item navbar-wagon-link" %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dropdown appearing on mobile only -->
+  <div class="navbar-wagon-item hidden-md hidden-lg">
+    <div class="dropdown">
+      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <li><%= link_to "Favourites", 'favourites_path'%></li>
+        <li><%= link_to "Applications", 'favourites_path'%></li>
+        <li><%= link_to "Messages", 'favourites_path'%></li>
+      </ul>
+    </div>
+  </div>
+</div>
