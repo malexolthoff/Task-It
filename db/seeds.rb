@@ -16,8 +16,7 @@ Company.destroy_all
     user_id: User.last.id,
     description: "Unsplash it is a small startup in Montreal focused on providing
     free images to web users. We care about our product and we care about our user experience.
-    If you would like to work with us, please drop us a line.",
-    photo: "https://images.unsplash.com/photo-1461988625982-7e46a099bf4f?auto=format&fit=crop&w=1950&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D"
+    If you would like to work with us, please drop us a line."
     )
 
   Internship.create(
