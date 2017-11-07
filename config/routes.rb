@@ -12,5 +12,5 @@ Rails.application.routes.draw do
     resources :applications, only: [:create]
   end
 
-root 'applications#index'
+root 'pages#home'
 end
