@@ -8,8 +8,7 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    @company = Company.find(params[:id])
-    Company.create(company_params)
+    @company = Company.create(company_params)
     if @company.save
       redirect_to company_path(@company)
     else
@@ -42,7 +41,7 @@ end
   private
 
   def company_params
-    params.require(:company).permit(:name, :industry, :photo, :address, :description)
+    params.require(:company).permit(:name, :industry, :photo, :photo_cache, :address, :description)
   end
 
 end
