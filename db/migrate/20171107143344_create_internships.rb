@@ -5,7 +5,7 @@ class CreateInternships < ActiveRecord::Migration[5.0]
       t.text :description
       t.integer :length
       t.integer :hours
-      t.references :company, foreign_key: true
+      t.references :company, foreign_key: true, index: true
 
       t.timestamps
     end
