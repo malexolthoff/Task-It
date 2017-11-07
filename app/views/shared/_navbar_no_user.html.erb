@@ -7,9 +7,9 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-    <%= link_to "About Us", 'favourites_path', class: "navbar-wagon-item navbar-wagon-link" %>
-    <%= link_to "Sign Up", 'favourites_path', class: "navbar-wagon-item navbar-wagon-link" %>
-    <%= link_to "Log In", 'favourites_path', class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "About Us", '#', class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "Sign Up", new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "Sign In", new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
   </div>
 
   <!-- Dropdown appearing on mobile only -->
@@ -17,9 +17,9 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><%= link_to "Favourites", 'favourites_path'%></li>
-        <li><%= link_to "Applications", 'favourites_path'%></li>
-        <li><%= link_to "Messages", 'favourites_path'%></li>
+        <li><%= link_to '#', 'favourites_path'%></li>
+        <li><%= link_to new_user_registration_path, 'new_user_registration_path'%></li>
+        <li><%= link_to new_user_session_path, 'new_user_session_path'%></li>
       </ul>
     </div>
   </div>
