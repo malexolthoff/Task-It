@@ -33,9 +33,8 @@ end
 
   def destroy
     @company = Company.find(params[:id])
-    @user = User.find(@company.user_id)
     @company.destroy
-    redirect_to user_path(@user)
+    redirect_to root_path
   end
 
   private
