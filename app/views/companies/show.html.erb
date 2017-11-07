@@ -5,7 +5,8 @@
   <%= cl_image_tag @company.photo, height: 300, width: 400, crop: :fill %>
   <h2> Description: </h2>
   <p> <%= @company.description %> </p>
-    <%= link_to "Edit", edit_company_path(@company) %>
+    <%= link_to "Edit", edit_company_path(@company), class: "btn btn-primary" %>
+    <%= link_to "Delete Company", company_path(@company), method: :delete, data: { confirm: "Are you sure you want to delete this company?"}, class: "btn btn-danger" %>
   <h4>Available Internships:</h4>
   <% @company.internships.each do |internship| %>
     <%= link_to internship.name, internship_path(internship) %>
