@@ -5,6 +5,7 @@
   <%= cl_image_tag @company.photo, height: 300, width: 400, crop: :fill %>
   <h2> Description: </h2>
   <p> <%= @company.description %> </p>
+    <%= link_to "Edit", edit_company_path(@company) %>
   <h4>Available Internships:</h4>
   <% @company.internships.each do |internship| %>
     <%= link_to internship.name, internship_path(internship) %>
