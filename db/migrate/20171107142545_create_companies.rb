@@ -5,7 +5,7 @@ class CreateCompanies < ActiveRecord::Migration[5.0]
       t.string :industry
       t.string :photo
       t.string :address
-
+      t.references :user, foreign_key: true
       t.timestamps
     end
   end

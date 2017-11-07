@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+
   resources :companies, only: [:show] do
     resources :internships
   end
@@ -7,6 +8,6 @@ Rails.application.routes.draw do
   resources :internships, only: [:index, :show] do
     resources :applications, only: [:create]
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-root 'articles#index'
-end
+
+root 'internships#index'
+end 
