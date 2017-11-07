@@ -10,5 +10,7 @@
   <h4>Available Internships:</h4>
   <% @company.internships.each do |internship| %>
     <%= link_to internship.name, internship_path(internship) %>
+    <%= link_to "Edit", edit_company_internship_path(@company, internship), class: "btn btn-primary" %>
+    <%= link_to "Delete Internship", company_internship_path(@company, internship), method: :delete, data: { confirm: "Are you sure you want to delete this internship?"}, class: "btn btn-danger" %>
   <% end %>
 </div>

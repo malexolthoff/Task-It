@@ -2,7 +2,14 @@
     <div class="banner-content">
       <h1>TaskIt!</h1>
       <p>Gain meaningful experience and find your fit in a new industry.</p>
+<<<<<<< HEAD
       <%= link_to "Start Now", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+=======
+      <% unless user_signed_in? %>
+
+        <%= link_to "Start Now", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+        <% end %>
+>>>>>>> ab27b54199835b296eab0673ba4938aee6c09d34
     </div>
   </div>
 

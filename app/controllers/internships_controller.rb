@@ -5,6 +5,7 @@ class InternshipsController < ApplicationController
   end
 
   def show
+    @company = @internship.company
   end
 
   def new
@@ -31,8 +32,9 @@ class InternshipsController < ApplicationController
   end
 
   def destroy
+    @company = @internship.company
     @internship.destroy
-    redirect_to
+    redirect_to company_path(@company)
   end
 
   private
