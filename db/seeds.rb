@@ -6,12 +6,17 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Company.destroy_all
+
 
   Company.create(
     name: "Unsplash It",
     industry: "IT",
     address: "La Gare, Avenue Casgrain #102, Montréal, QC",
-    user_id: 1
+    user_id: 1,
+    description: "Unsplash it is a small startup in Montreal focused on providing
+    free images to web users. We care about our product and we care about our user experience.
+    If you would like to work with us, please drop us a line."
     )
 
   Internship.create(
@@ -20,5 +25,5 @@
     qualifications: "being on time",
     length: 5,
     hours: 40,
-    company_id: 1
+    company_id: Company.find_by(name: "Unsplash It").id
     )
