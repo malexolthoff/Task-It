@@ -30,6 +30,7 @@ class CompaniesController < ApplicationController
     else
       render :edit
   end
+end
 
   def destroy
     @company = Company.find(params[:id])
