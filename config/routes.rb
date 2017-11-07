@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   resources :internships, only: [:index, :show] do
     resources :applications, only: [:create]
   end
-
+  resources :users
 root 'pages#home'
 end
