@@ -2,17 +2,7 @@
 <div class="info">
   <p>Industry: <%=@company.industry %></p>
   <p>Address: <%= @company.address %></p>
-  <%= image_tag @company.photo %>
+  <%= cl_image_tag @company.photo, height: 300, width: 400, crop: :fill %>
   <h2> Description: </h2>
   <p> <%= @company.description %> </p>
 </div>
-
-
-
-
-
-
-
-
-
-
