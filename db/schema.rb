@@ -10,18 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171107154135) do
+ActiveRecord::Schema.define(version: 20171107154650) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "applications", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "internship_id"
+    t.text     "message"
+    t.string   "resume"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["internship_id"], name: "index_applications_on_internship_id", using: :btree
+    t.index ["user_id"], name: "index_applications_on_user_id", using: :btree
+  end
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"
     t.string   "industry"
     t.string   "photo"
     t.string   "address"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_companies_on_user_id", using: :btree
   end
 
   create_table "internships", force: :cascade do |t|
@@ -63,5 +76,8 @@ ActiveRecord::Schema.define(version: 20171107154135) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "applications", "internships"
+  add_foreign_key "applications", "users"
+  add_foreign_key "companies", "users"
   add_foreign_key "internships", "companies"
 end
