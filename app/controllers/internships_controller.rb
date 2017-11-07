@@ -5,6 +5,7 @@ class InternshipsController < ApplicationController
   end
 
   def show
+    @company = @internship.company
   end
 
   def new
