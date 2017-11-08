@@ -36,7 +36,7 @@ Company.destroy_all
     description: "Hancock Internation is a small freight forwarder looking to improve your experience
     in exporting goods from the US to any country. As a small business, we care about our customers
     more than our competitors.",
-    photo: "https://cloudinary.com/console/media_library#/dialog/image/upload/oec_dcc98q"
+    photo: "https://res.cloudinary.com/ddsp5wihh/image/upload/v1510164667/oec_dcc98q.jpg"
     )
 
   Company.create(
@@ -46,7 +46,7 @@ Company.destroy_all
     user_id: User.last.id,
     description: "We are a large logitics company helping you move freight. Originating in Taiwan,
     we specialize in imports from Asia and bring them right to your door.",
-    photo: "https://cloudinary.com/console/media_library#/dialog/image/upload/hancock_xu3pwk"
+    photo: "https://res.cloudinary.com/ddsp5wihh/image/upload/v1510164644/hancock_xu3pwk.jpg"
     )
 
 
