@@ -1,38 +1,41 @@
-<h1> <%=@company.name %></h1>
-<div class="info">
-  <p>Industry: <%=@company.industry %></p>
-  <p>Address: <%= @company.address %></p>
-  <%= cl_image_tag @company.photo, height: 300, width: 400, crop: :fill %>
-  <h2> Description: </h2>
-  <p> <%= @company.description %> </p>
-    <%= link_to "Edit", edit_company_path(@company), class: "btn btn-primary" %>
-    <%= link_to "Delete Company", company_path(@company), method: :delete, data: { confirm: "Are you sure you want to delete this company?"}, class: "btn btn-danger" %>
-  <h4>Available Internships:</h4>
-  <p><%= link_to "Add Internship", new_company_internship_path(@company) %></p>
+<div class="all-companies">
 
-  <% @company.internships.each do |internship| %>
-    <p><%= link_to internship.name, company_internship_path(@company, internship) %></p>
-    <%= link_to "Edit", edit_company_internship_path(@company, internship), class: "btn btn-primary" %>
-    <%= link_to "Delete Internship", company_internship_path(@company, internship), method: :delete, data: { confirm: "Are you sure you want to delete this internship?"}, class: "btn btn-danger" %>
+  <h1> <%=@company.name %></h1>
+  <div class="info">
+    <p>Industry: <%=@company.industry %></p>
+    <p>Address: <%= @company.address %></p>
+    <%= image_tag 'company.jpg', :class => "style_image_company" %>
+    <h2> Description: </h2>
+    <p> <%= @company.description %> </p>
+      <%= link_to "Edit", edit_company_path(@company), class: "btn btn-primary" %>
+      <%= link_to "Delete Company", company_path(@company), method: :delete, data: { confirm: "Are you sure you want to delete this company?"}, class: "btn btn-danger" %>
+    <h4>Available Internships:</h4>
+    <p><%= link_to "Add Internship", new_company_internship_path(@company) %></p>
+
+    <% @company.internships.each do |internship| %>
+      <p><%= link_to internship.name, company_internship_path(@company, internship) %></p>
+      <%= link_to "Edit", edit_company_internship_path(@company, internship), class: "btn btn-primary" %>
+      <%= link_to "Delete Internship", company_internship_path(@company, internship), method: :delete, data: { confirm: "Are you sure you want to delete this internship?"}, class: "btn btn-danger" %>
+    <% end %>
+  </div>
+
+  <div id="map" style="width: 100%; height: 600px;"></div>
+
+  <% content_for(:after_js) do %>
+    <%= javascript_tag do %>
+      $(document).ready(function() {
+        var handler = Gmaps.build('Google');
+        handler.buildMap({ internal: { id: 'map' } }, function() {
+          markers = handler.addMarkers(<%= raw @hash.to_json %>);
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+          if (markers.length == 0) {
+            handler.getMap().setZoom(2);
+          } else if (markers.length == 1) {
+            handler.getMap().setZoom(14);
+          }
+        });
+      });
+    <% end %>
   <% end %>
 </div>
-
-<div id="map" style="width: 100%; height: 600px;"></div>
-
-<% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-    $(document).ready(function() {
-      var handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function() {
-        markers = handler.addMarkers(<%= raw @hash.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        if (markers.length == 0) {
-          handler.getMap().setZoom(2);
-        } else if (markers.length == 1) {
-          handler.getMap().setZoom(14);
-        }
-      });
-    });
-  <% end %>
-<% end %>
