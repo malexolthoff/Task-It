@@ -1,0 +1,33 @@
+.companies {
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-direction: row;
+    width: 65%;
+    flex: 1;
+    display: flex;
+}
+.company {
+  min-width: 250px;
+  margin: 10px;
+  flex: 1;
+}
+
+.map-container {
+  width: 50%;
+  height: 50%;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.container {
+}
+
+.internship-title {
+  text-align: center;
+  color: #88CAFE;
+  font-family: 'Pacifico', cursive;
+  padding-bottom: 30px;
+}
