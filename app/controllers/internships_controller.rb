@@ -6,6 +6,11 @@ class InternshipsController < ApplicationController
 
   def show
     @company = @internship.company
+
+    @hash = Gmaps4rails.build_markers(@company) do |company, marker|
+      marker.lat company.latitude
+      marker.lng company.longitude
+    end
   end
 
   def new
