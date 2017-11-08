@@ -12,11 +12,24 @@
   <p><%= @internship.hours %> hours per week</p>
     <%= link_to "Edit", edit_company_internship_path(@company, @internship), class: "btn btn-primary" %>
     <%= link_to "Delete Internship", company_internship_path(@company, @internship), method: :delete, data: { confirm: "Are you sure you want to delete this internship?"}, class: "btn btn-danger" %>
-  <% content_for(:after_js) do %>
+</div>
+
+<div id="map" style="width: 100%; height: 600px;"></div>
+
+<% content_for(:after_js) do %>
   <%= javascript_tag do %>
     $(document).ready(function() {
-      alert('<%= @alert_message %>');
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers(<%= raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(14);
+        }
+      });
     });
   <% end %>
 <% end %>
-</div>

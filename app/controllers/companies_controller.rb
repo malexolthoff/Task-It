@@ -1,7 +1,13 @@
 class CompaniesController < ApplicationController
   def show
     @company = Company.find(params[:id])
+    @company = Company.where.not(latitude: nil, longitude: nil)
     @internship = Internship.new
+
+    @hash = Gmaps4rails.build_markers(@flats) do |flat, marker|
+      marker.lat flat.latitude
+      marker.lng flat.longitude
+    end
   end
 
   def new
