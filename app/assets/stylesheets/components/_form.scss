@@ -1,10 +1,23 @@
 .form-body {
   margin: 50px 500px 90px;
   text-align: center;
-  // background-color: #88CAFE;
+  background-color: white;
   padding: 40px;
+  border-color: black;
+  border-width: 2px;
 }
 
 .form-title {
   font-family: 'Open Sans', sans-serif;
+}
+
+body.page-sessions-new {
+  background-color: rgb(245,245,245);
+  // background-color: grey;
+}
+
+body.page-registrations-new {
+  background-color: rgb(245,245,245);
+  //background-color: rgba(136,202,254,0.4);
+  // background-color: grey;
 }
