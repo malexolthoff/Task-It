@@ -1,12 +1,29 @@
-<div class="user-avatar">
-  <%= image_tag('TaskIt_logo.png') %>
-</div>
+<div class="container">
 
-<h1><%=@user.first_name%><%=@user.last_name%></h1>
 
-<div>
-  <p>Phone Number: <%=@user.phone%> </p>
-  <p>Education: <%=@user.education%> </p>
-  <p>Email: <%=@user.email%></p>
-  <p>Description: <%=@user.description %></p>
+  <%= image_tag 'Lucia.JPG', :class => "style_image" %>
+
+
+  <div class="card text-center">
+    <h1 class="name"><%=@user.first_name%><%=@user.last_name %>Lucia Mkhitarova</h1>
+  </div>
+  <div class="card text-center">
+    <p class="name"><i class="fa fa-address-card-o" aria-hidden="true"></i>
+Phone Number</p>
+    <p class="text"><%=@user.phone%>514-546-2478</p>
+  </div>
+  <div class="card text-center">
+    <p class="name"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Education</p>
+    <p class="text"><%= @user.education %> McGill University</p>
+  </div>
+  <div class="card text-center">
+    <p class="name"><i class="fa fa-envelope-o" aria-hidden="true"></i>
+ Email</p>
+    <p class="text"><%= @user.email %>lucia.m@gmail.com</p>
+  </div>
+  <div class="card text-center">
+    <p class="name"><i class="fa fa-address-card-o" aria-hidden="true"></i>
+ Description</p>
+    <p class="text"><%= @user.description %>Le Wagon Student</p>
+  </div>
 </div>

@@ -1,0 +1,35 @@
+.name {
+  color: rgba(0,0,0,6);
+  font-weight: bold;
+}
+
+.text {
+  //color: rgb(136,202,254);
+  color: rgb(130,130,130);
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 100px;
+    margin-left: 100px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+  }
+
+.text-center {
+  text-align: center;
+}
+
+.style_image {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 3px solid #cccccc;
+  display: block;
+  margin: auto;
+}
+
