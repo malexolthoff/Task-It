@@ -1,8 +1,16 @@
 class Company < ApplicationRecord
   has_many :internships, dependent: :destroy
+
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
+
   mount_uploader :photo, PhotoUploader
+
+  validates :industry, presence: true, allow_blank: false
+  validates :name, presence: true
+  validates :address, presence: true
+  validates :description, presence: true
+
 
   INDUSTRIES = [
     "Accounting",
@@ -154,8 +162,4 @@ class Company < ApplicationRecord
     "Wireless",
     "Writing & Editing"
   ]
-  validates :industry, presence: true, allow_blank: false
-  validates :name, presence: true
-  validates :address, presence: true
-  validates :description, presence: true
 end
