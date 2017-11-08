@@ -6,6 +6,26 @@
 
        <%= link_to "Sign Up Now", new_user_registration_path, class: "btn btn-primary btn-lg" %>
         <% end %>
+
+
+
+<div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+<form>
+      <div class="form-group">
+        <label for="industry">Please enter search criteria:</label>
+        <div class="box">
+        <input type="text" id="search">
+        </div>
+      </div>
+      <button id="submit" type="submit" class="btn btn-primary"> <%= link_to "Go", companies_path %> </button>
+    </form>
+
+    </div>
+  </div>
+
+
+
     </div>
   </div>
 
