@@ -1,5 +1,5 @@
 class InternshipsController < ApplicationController
-  before_action :set_internship, only: [:show, :delete, :destroy, :edit ]
+  before_action :set_internship, only: [ :show, :delete, :destroy, :edit ]
   def index
     @internships = Internship.all
   end
