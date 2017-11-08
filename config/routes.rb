@@ -5,12 +5,15 @@ Rails.application.routes.draw do
 
 
   resources :companies do
-    resources :internships
+    resources :internships do
+      resources :applications, only: [:create]
+      get 'messages', to: 'applications#company_messages'
+    end
   end
 
-  resources :internships, only: [:index, :show] do
-    resources :applications, only: [:create]
+  resources :internships, only: [:index, :show]
+  resources :users do
+    get 'messages', to: 'applications#messages'
   end
-  resources :users
 root 'pages#home'
 end

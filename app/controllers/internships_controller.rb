@@ -5,7 +5,9 @@ class InternshipsController < ApplicationController
   end
 
   def show
+    @company = Company.find(params[:company_id])
     @company = @internship.company
+    @application = Application.new
   end
 
   def new

@@ -1,5 +1,6 @@
 class Company < ApplicationRecord
   has_many :internships, dependent: :destroy
+  has_many :applications
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
   mount_uploader :photo, PhotoUploader
