@@ -5,8 +5,9 @@ class InternshipsController < ApplicationController
   end
 
   def show
+    @company = Company.find(params[:company_id])
     @company = @internship.company
-
+    @application = Application.new
     @hash = Gmaps4rails.build_markers(@company) do |company, marker|
       marker.lat company.latitude
       marker.lng company.longitude
