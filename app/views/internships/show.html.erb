@@ -12,4 +12,11 @@
   <p><%= @internship.hours %> hours per week</p>
     <%= link_to "Edit", edit_company_internship_path(@company, @internship), class: "btn btn-primary" %>
     <%= link_to "Delete Internship", company_internship_path(@company, @internship), method: :delete, data: { confirm: "Are you sure you want to delete this internship?"}, class: "btn btn-danger" %>
+  <% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      alert('<%= @alert_message %>');
+    });
+  <% end %>
+<% end %>
 </div>
