@@ -10,21 +10,22 @@ Company.destroy_all
 
 
   Company.create(
-    name: "Unsplash It",
-    industry: "Graphic Design",
-    address: "La Gare, Avenue Casgrain #102, Montréal, QC",
+    name: "Quincy News",
+    industry: "Broadcasting",
+    address: "130 South 5th Street P.O. Box 909 Quincy, IL USA 62306",
     user_id: User.last.id,
-    description: "Unsplash it is a small startup in Montreal focused on providing
-    free images to web users. We care about our product and we care about our user experience.
-    If you would like to work with us, please drop us a line."
+    description: "Quincy news is a small media company dedicated to honesty, journalistic integrity, and social justice reporting.
+    We are looking for hard working reporters who are deliberate and thoughtful in their craft",
+    photo: "https://cloudinary.com/console/media_library#/dialog/image/upload/unplashit_pe1v94"
     )
 
   Company.create(
-    name: "Il Bastardo",
+    name: "Beer Nuts",
     industry: "Food Production",
-    address: "Old Port of Montreal",
+    address: "103 N. Robinson Street, Bloomington, IL 61701",
     user_id: User.last.id,
-    description: "We specialize in making wines and delicious food. Please stop by and try our specials."
+    description: "We specialize in making beer and delicious food. Please stop by and try our specials.",
+    photo: "https://cloudinary.com/console/media_library#/dialog/image/upload/image_k0hait"
     )
 
   Company.create(
@@ -34,7 +35,8 @@ Company.destroy_all
     user_id: User.last.id,
     description: "Hancock Internation is a small freight forwarder looking to improve your experience
     in exporting goods from the US to any country. As a small business, we care about our customers
-    more than our competitors."
+    more than our competitors.",
+    photo: "https://cloudinary.com/console/media_library#/dialog/image/upload/oec_dcc98q"
     )
 
   Company.create(
@@ -43,7 +45,8 @@ Company.destroy_all
     address: "555 Pierce Itasca IL",
     user_id: User.last.id,
     description: "We are a large logitics company helping you move freight. Originating in Taiwan,
-    we specialize in imports from Asia and bring them right to your door."
+    we specialize in imports from Asia and bring them right to your door.",
+    photo: "https://cloudinary.com/console/media_library#/dialog/image/upload/hancock_xu3pwk"
     )
 
 
@@ -54,7 +57,7 @@ Company.destroy_all
     a sensitive matter as the dog has IBS.",
     length: 5,
     hours: 40,
-    company_id: Company.find_by(name: "Unsplash It").id
+    company_id: Company.find_by(name: "Quincy News").id
     )
 
   Internship.create(
@@ -80,5 +83,5 @@ Company.destroy_all
     cuisine, is flexible, and willing to be available last minute.",
     length: 8,
     hours: 30,
-    company_id: Company.find_by(name: "Il Bastardo").id
+    company_id: Company.find_by(name: "Beer Nuts").id
     )
