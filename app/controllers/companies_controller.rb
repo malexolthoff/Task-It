@@ -1,7 +1,13 @@
 class CompaniesController < ApplicationController
 
   def index
-    @companies = Company.all
+    @companies = Company.where.not(latitude: nil, longitude: nil)
+
+    @hash = Gmaps4rails.build_markers(@companies) do |company, marker|
+      marker.lat company.latitude
+      marker.lng company.longitude
+      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+    end
   end
 
   def show
