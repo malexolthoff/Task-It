@@ -1,11 +1,10 @@
 <h1> <%= @internship.name %> </h1>
 <div class = 'info'>
-  <h2>Company name: <%= @company.name %></h2>
+  <h2>Company name: <%= link_to @company.name, company_path(@company) %></h2>
   <p>Industry: <%= @internship.company.industry %></p>
   <p>Address: <%= @internship.company.address %></p>
   <p>Company description: <%= @company.description %></p>
-  <p> <%= @company.photo %> </p>
-  <h5>Why is company photo not workin???</h5>
+  <%= image_tag(@company.photo) %>
  <!--  company photo not working here -->
   <p><%= @internship.description %></p>
   <p><%= @internship.length %> weeks</p>
