@@ -1,0 +1,6 @@
+
+<h1>Internships are available with the following companies: </h1>
+
+<% @companies.each do |company| %>
+<p><%= link_to company.name, company_path(company) %></p>
+<% end %>
