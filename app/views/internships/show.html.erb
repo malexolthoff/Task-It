@@ -1,6 +1,6 @@
 <h1> <%= @internship.name %> </h1>
 <div class = 'info'>
-  <h2>Company name: <%= @company.name %></h2>
+  <h2>Company name: <%= link_to @company.name, company_path(@company) %></h2>
   <p>Industry: <%= @internship.company.industry %></p>
   <p>Address: <%= @internship.company.address %></p>
   <p>Company description: <%= @company.description %></p>
@@ -19,3 +19,23 @@
 
       <%= link_to 'Back', internships_path %>
 </div>
+
+<div id="map" style="width: 100%; height: 600px;"></div>
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers(<%= raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(14);
+        }
+      });
+    });
+  <% end %>
+<% end %>

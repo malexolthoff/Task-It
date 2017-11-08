@@ -1,5 +1,5 @@
 class InternshipsController < ApplicationController
-  before_action :set_internship, only: [:show, :delete, :destroy, :edit ]
+  before_action :set_internship, only: [ :show, :delete, :destroy, :edit ]
   def index
     @internships = Internship.all
   end
@@ -8,6 +8,10 @@ class InternshipsController < ApplicationController
     @company = Company.find(params[:company_id])
     @company = @internship.company
     @application = Application.new
+    @hash = Gmaps4rails.build_markers(@company) do |company, marker|
+      marker.lat company.latitude
+      marker.lng company.longitude
+    end
   end
 
   def new

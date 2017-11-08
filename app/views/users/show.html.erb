@@ -1,7 +1,12 @@
-<h1>Name: <%=@user.first_name%><%=@user.last_name%> </h1>
+<div class="user-avatar">
+  <%= image_tag('TaskIt_logo.png') %>
+</div>
 
-<p> Phone Number: <%=@user.phone%> </p>
+<h1><%=@user.first_name%><%=@user.last_name%></h1>
 
-<p> Education: <%=@user.education%> </p>
-
-<p> Email: <%=@user.email%></p>
+<div>
+  <p>Phone Number: <%=@user.phone%> </p>
+  <p>Education: <%=@user.education%> </p>
+  <p>Email: <%=@user.email%></p>
+  <p>Description: <%=@user.description %></p>
+</div>
