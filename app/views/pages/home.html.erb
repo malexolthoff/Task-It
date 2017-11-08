@@ -2,17 +2,11 @@
     <div class="banner-content">
       <h1>TaskIt!</h1>
       <p>Gain meaningful experience and find your fit in a new industry.</p>
-      <% unless user_signed_in? %>
-
-       <%= link_to "Sign Up Now", new_user_registration_path, class: "btn btn-primary btn-lg" %>
-        <% end %>
-
-
-
-<div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-<form>
-      <div class="form-group">
+      <% if user_signed_in? %>
+      <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <form>
+          <div class="form-group">
         <label for="industry">Please enter search criteria:</label>
         <div class="box">
         <input type="text" id="search">
@@ -21,8 +15,11 @@
       <button id="submit" type="submit" class="btn btn-primary"> <%= link_to "Go", companies_path %> </button>
     </form>
 
-    </div>
-  </div>
+       </div>
+     </div>
+      <% else %>
+       <%= link_to "Sign Up Now", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+        <% end %>
 
 
 
