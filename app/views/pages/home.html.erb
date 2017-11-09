@@ -6,14 +6,14 @@
       <% if user_signed_in? %>
       <div class="row">
         <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-          <form>
+          <form action="/companies">
             <div class="form-group">
               <label for="industry">Please enter search criteria:</label>
               <div class="box">
                 <input type="text" id="search">
               </div>
             </div>
-          <button id="submit" type="submit" class="btn btn-primary"> <%= link_to "Start", companies_path %></button>
+          <button id="submit" type="submit" class="btn btn-primary">Go</button>
           </form>
 
         </div>
