@@ -1,29 +1,24 @@
 
-
 <div class="container">
-  <%= simple_form_for [@user] do |f| %>
+ <%= simple_form_for [@user] do |f| %>
+  <%= f.error_notification %>
   <div class="user-card text-center">
     <%= image_tag @user.photo, class: "style_image" %>
       <%= f.input :photo %>
       <%= f.input :photo_cache, as: :hidden %>
-
     <div class="user-card text-center">
     <p><%= f.input :first_name %><%= f.input :last_name %></p>
     </div>
-
   </div>
-
   <div class="user-card text-center">
     <p class="name"><i class="fa fa-address-card-o" aria-hidden="true"></i>
  Bio</p>
     <p><%= f.input :description %></p>
   </div>
-
     <div class="user-card text-center">
     <p class="name"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Education</p>
     <p><%= f.input :education %></p>
   </div>
-
     <div class="user-card text-center">
     <p class="name"><i class="fa fa-check-circle-o" aria-hidden="true"></i>
  Experience</p>
@@ -55,5 +50,3 @@ Phone Number</p>
   <p><%= f.button :submit, class: "text-center" %> </p>
 <% end %>
 </div>
-
-
