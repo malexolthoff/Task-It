@@ -2,12 +2,11 @@ class ApplicationsController < ApplicationController
 
   def messages
     # @internship = Internship.find(params[:internship_id])
-    # @user = User.find(params[:user_id])
+    @user = current_user.id
     # @applications = Application.all
     # @internship = Internship.find(params[:internship_id])
     # @user = User.find(params[:user_id])
-    # @applications = Application.all
-    @messages = current_user.applications.messages
+    @applications = Application.where("user_id = #{@user}")
   end
   def company_messages
     @company = Company.find(params[:company_id])
