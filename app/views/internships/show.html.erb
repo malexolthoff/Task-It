@@ -1,27 +1,55 @@
-<h1> <%= @internship.name %> </h1>
-<div class = 'info'>
-  <h2>Company name: <%= link_to @company.name, company_path(@company) %></h2>
-  <p>Industry: <%= @internship.company.industry %></p>
-  <p>Address: <%= @internship.company.address %></p>
-  <p>Company description: <%= @company.description %></p>
-  <%= image_tag(@company.photo) %>
- <!--  company photo not working here -->
-  <p><%= @internship.description %></p>
-  <p><%= @internship.length %> weeks</p>
-  <p><%= @internship.hours %> hours per week</p>
-    <%= link_to "Edit", edit_company_internship_path(@company, @internship), class: "btn btn-primary" %>
-    <%= link_to "Delete Internship", company_internship_path(@company, @internship), method: :delete, data: { confirm: "Are you sure you want to delete this internship?"}, class: "btn btn-danger" %>
+<div class="companies-container">
+  <div class="container">
+    <div class="company-card text-center">
+      <h1 class="internship-title"><%= @internship.name %></h1>
+      <h1 class="internship-link">@ <%= link_to @company.name, company_path(@company) %></h1>
+      <%= image_tag(@company.photo, class: "style_image_company") %>
 
-    <%= simple_form_for([@company, @internship, @application]) do |f| %>
-        <%= f.input :message %>
-        <%= f.submit class: "btn btn-primary" %>
-      <% end %>
+    <div>
+        <%= link_to "Edit", edit_company_internship_path(@company, @internship), class: "btn btn-primary" %>
+          <%= link_to "Delete Internship", company_internship_path(@company, @internship), method: :delete, data: { confirm: "Are you sure you want to delete this internship?"}, class: "btn btn-danger" %>
+      </div>
+    </div>
+    <div class="company-card text-center">
+      <p class="name"><i class="fa fa-address-card-o" aria-hidden="true"></i> Description</p>
+      <p class="text"><%= @internship.description %></p>
+    </div>
 
-      <%= link_to 'Back', internships_path %>
+    <div class="company-card text-center">
+      <p class="name"><i class="fa fa-calendar" aria-hidden="true"></i></i> Length</p>
+      <p class="text"><%= @internship.length %> weeks</p>
+    </div>
+
+    <div class="company-card text-center">
+      <p class="name"><i class="fa fa-clock-o" aria-hidden="true"></i></i> Hours</p>
+      <p class="text"><%= @internship.hours %> per week</p>
+    </div>
+
+    <div class="company-card text-center">
+      <p class="name"><i class="fa fa-industry" aria-hidden="true"></i></i> Industry</p>
+      <p class="text"><%= @internship.company.industry %></p>
+    </div>
+
+    <div class="company-card text-center">
+      <p class="name"><i class="fa fa-map-marker" aria-hidden="true"></i></i> Address</p>
+      <p class="text"><%= @internship.company.address %></p>
+    </div>
+
+    <div class="company-card text-center">
+      <p class="name"><i class="fa fa-commenting-o" aria-hidden="true"></i></i> Message</p>
+      <%= simple_form_for([@company, @internship, @application]) do |f| %>
+          <%= f.input :message %>
+
+          <%= f.submit class: "btn btn-primary" %>
+        <% end %>
+    </div>
+
+      <%= link_to 'Back', companies_path %>
+  </div>
+  <div class="container">
+    <div class="map-card" id="map" style="width: 100%; height: 600px;"></div>
+  </div>
 </div>
-
-<div id="map" style="width: 100%; height: 600px;"></div>
-
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
     $(document).ready(function() {
