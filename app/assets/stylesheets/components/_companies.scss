@@ -1,0 +1,65 @@
+.style_image_company {
+  width: 500px;
+  height: 300px;
+  margin-bottom: 20px;
+}
+
+.companies-container {
+  display: flex;
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  justify-content: space-around;
+}
+
+.companies-flex-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.company-card {
+  background: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+}
+
+.company-card-index-page {
+  min-width: 250px;
+  margin: 10px;
+  flex: 1;
+}
+
+.map-card {
+  background: white;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+}
+
+.company-button {
+  padding: 20px;
+  border-radius: 3px;
+  background-color: black;
+}
+
+.companies-loop {
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-direction: row;
+    width: 65%;
+    flex: 1;
+    display: flex;
+}
+
+.company-search-bar {
+  margin-right: 10px;
+  height: 35px;
+  padding-bottom: 6px;
+}
+
+
+
+

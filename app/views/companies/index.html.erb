@@ -1,26 +1,27 @@
+<div class="companies-container">
+  <div class="container">
+    <div class="company-card">
+      <h2 class="form-title text-center">Available Internships</h2>
+      <form action="/companies">
+      <div class="form-group">
+        <label for="industry">Please enter industry to search:</label>
+        <div class="box">
+          <input class="company-search-bar" type="text" id="search" name="search"><button id="submit" type="submit" class="btn btn-primary">Go</button>
+        </div>
+      </div>
 
-<h2 class="internship-title">Available Internships</h2>
-
-<form action="/companies">
-            <div class="form-group">
-              <label for="industry">Please enter industry to search:</label>
-              <div class="box">
-                <input type="text" id="search" name="search">
-              </div>
-            </div>
-          <button id="submit" type="submit" class="btn btn-primary">Go</button>
-          </form>
-
-<div class="flex-container">
-<div class="companies">
-    <% @companies.each do |company| %>
-      <%= render partial: company %>
-      <% end %>
-</div>
-
-
-<div class="map-container">
-  <div id="map" style="width: 100%; height: 600px;"></div>
+      </form>
+      <div class="companies-flex-container">
+        <div class="companies-loop">
+          <% @companies.each do |company| %>
+            <%= render partial: company %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="map-card" id="map" style="width: 100%; height: 600px;"></div>
   </div>
 </div>
 
