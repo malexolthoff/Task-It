@@ -3,7 +3,7 @@
     <div class="card-category"><%= company.industry  %></div>
     <div class="card-description">
       <h2><%= company.name %></h2>
-      <p>V<%= company.address %></p>
+      <p><%= company.address %></p>
     </div>
     <%= link_to company.name, company_path(company), class: "card-link" %>
   </div>
