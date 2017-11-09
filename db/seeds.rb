@@ -16,7 +16,7 @@ Company.destroy_all
     user_id: User.last.id,
     description: "Quincy news is a small media company dedicated to honesty, journalistic integrity, and social justice reporting.
     We are looking for hard working reporters who are deliberate and thoughtful in their craft",
-    photo: open("https://cloudinary.com/console/media_library#/dialog/image/upload/unplashit_pe1v94")
+    photo: open("http://res.cloudinary.com/ddsp5wihh/image/upload/v1510152617/al5byj6qs8xzb6jfhuov.jpg")
     )
 
   Company.create(
@@ -25,7 +25,7 @@ Company.destroy_all
     address: "103 N. Robinson Street, Bloomington, IL 61701",
     user_id: User.last.id,
     description: "We specialize in making beer and delicious food. Please stop by and try our specials.",
-    photo: open("https://cloudinary.com/console/media_library#/dialog/image/upload/image_k0hait")
+    photo: open("http://res.cloudinary.com/ddsp5wihh/image/upload/v1510175680/wfhsfzkzasacfgveau36.jpg")
     )
 
   Company.create(

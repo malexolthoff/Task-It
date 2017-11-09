@@ -4,7 +4,7 @@
   <div class="info">
     <p>Industry: <%=@company.industry %></p>
     <p>Address: <%= @company.address %></p>
-    <%= image_tag 'company.jpg', :class => "style_image_company" %>
+    <%= cl_image_tag @company.photo, :class => "style_image_company" %>
     <h2> Description: </h2>
     <p> <%= @company.description %> </p>
       <%= link_to "Edit", edit_company_path(@company), class: "btn btn-primary" %>

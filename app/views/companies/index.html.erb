@@ -13,7 +13,9 @@
 
 <div class="flex-container">
 <div class="companies">
-    <%= render partial: 'company', collection: @companies %>
+    <% @companies.each do |company| %>
+      <%= render partial: company %>
+      <% end %>
 </div>
 
 
