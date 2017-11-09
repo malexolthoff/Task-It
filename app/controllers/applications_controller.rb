@@ -14,9 +14,8 @@ class ApplicationsController < ApplicationController
     @company = Company.find(params[:company_id])
     @application = Application.new(application_params)
     @internship = Internship.find(params[:internship_id])
-    @application.user_id = current_user.id
-    @application.internship_id = @internship.id
-    @application.user_id = current_user.id
+    @application.user = current_user
+    @application.internship = @internship
     @application.company = @company
     if @application.save
       redirect_to company_path(@company)
