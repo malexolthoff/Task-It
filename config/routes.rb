@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   resources :companies do
     resources :internships do
       resources :applications, only: [:create]
-      get 'messages', to: 'applications#company_messages'
     end
   end
 
@@ -16,5 +15,8 @@ Rails.application.routes.draw do
   resources :users do
     get 'messages', to: 'applications#messages'
   end
+
+  get 'messages', to: 'applications#messages'
+
 root 'pages#home'
 end
