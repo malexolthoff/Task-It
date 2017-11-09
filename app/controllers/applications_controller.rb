@@ -2,7 +2,7 @@ class ApplicationsController < ApplicationController
 
   def messages
     @internship = Internship.find(params[:internship_id])
-    @user = User.find(params[:user_id])
+    @user = User.find(params[:user_id]
     @applications = Application.all
   end
   def company_messages
@@ -16,14 +16,13 @@ class ApplicationsController < ApplicationController
     @application = Application.new(application_params)
     @internship = Internship.find(params[:internship_id])
     @application.internship_id = @internship.id
-    @application.user = current_user
+    @application.user_id = current_user.id
     @application.company = @company
     if @application.save
       redirect_to company_path(@company)
     else
       render 'internships/show'
     end
-    authorize @application
   end
 
   private
