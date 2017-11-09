@@ -6,14 +6,35 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+User.destroy_all
 Company.destroy_all
 
+
+    user1 = User.create(
+    email: "test4@example.com",
+    password: "bananas"
+    )
+
+    user2 = User.create(
+    email: "test5@example.com",
+    password: "bananas"
+    )
+
+    user3 = User.create(
+    email: "test6@example.com",
+    password: "bananas"
+    )
+
+    user4 = User.create(
+    email: "test7@example.com",
+    password: "bananas"
+    )
 
   Company.create(
     name: "Quincy News",
     industry: "Broadcasting",
     address: "130 South 5th Street P.O. Box 909 Quincy, IL USA 62306",
-    user_id: User.last.id,
+    user_id: user1.id,
     description: "Quincy news is a small media company dedicated to honesty, journalistic integrity, and social justice reporting.
     We are looking for hard working reporters who are deliberate and thoughtful in their craft",
     photo: open("http://res.cloudinary.com/ddsp5wihh/image/upload/v1510152617/al5byj6qs8xzb6jfhuov.jpg")
@@ -23,7 +44,7 @@ Company.destroy_all
     name: "Beer Nuts",
     industry: "Food Production",
     address: "103 N. Robinson Street, Bloomington, IL 61701",
-    user_id: User.last.id,
+    user_id: user2.id,
     description: "We specialize in making beer and delicious food. Please stop by and try our specials.",
     photo: open("http://res.cloudinary.com/ddsp5wihh/image/upload/v1510175680/wfhsfzkzasacfgveau36.jpg")
     )
@@ -32,7 +53,7 @@ Company.destroy_all
     name: "Hancock International",
     industry: "Import & Export",
     address: "351 S Main Pl, Carol Stream, IL",
-    user_id: User.last.id,
+    user_id: user3.id,
     description: "Hancock Internation is a small freight forwarder looking to improve your experience
     in exporting goods from the US to any country. As a small business, we care about our customers
     more than our competitors.",
@@ -43,7 +64,7 @@ Company.destroy_all
     name: "OEC Group",
     industry: "Logistics & Supply Chain",
     address: "555 Pierce Itasca IL",
-    user_id: User.last.id,
+    user_id: user4.id,
     description: "We are a large logitics company helping you move freight. Originating in Taiwan,
     we specialize in imports from Asia and bring them right to your door.",
     photo: open("https://res.cloudinary.com/ddsp5wihh/image/upload/v1510164644/hancock_xu3pwk.jpg")
@@ -85,3 +106,4 @@ Company.destroy_all
     hours: 30,
     company_id: Company.find_by(name: "Beer Nuts").id
     )
+
