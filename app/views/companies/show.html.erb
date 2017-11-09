@@ -1,41 +1,56 @@
-<div class="all-companies">
-
-  <h1 class="form-title"> <%=@company.name %></h1>
-  <div class="info">
-    <p>Industry: <%=@company.industry %></p>
-    <p>Address: <%= @company.address %></p>
-    <%= cl_image_tag @company.photo, :class => "style_image_company" %>
-    <h2> Description: </h2>
-    <p> <%= @company.description %> </p>
-      <%= link_to "Edit", edit_company_path(@company), class: "btn btn-primary" %>
-      <%= link_to "Delete Company", company_path(@company), method: :delete, data: { confirm: "Are you sure you want to delete this company?"}, class: "btn btn-danger" %>
-    <h4>Available Internships:</h4>
-    <p><%= link_to "Add Internship", new_company_internship_path(@company) %></p>
-
-    <% @company.internships.each do |internship| %>
-      <p><%= link_to internship.name, company_internship_path(@company, internship) %></p>
-      <%= link_to "Edit", edit_company_internship_path(@company, internship), class: "btn btn-primary" %>
-      <%= link_to "Delete Internship", company_internship_path(@company, internship), method: :delete, data: { confirm: "Are you sure you want to delete this internship?"}, class: "btn btn-danger" %>
-    <% end %>
+<div class="companies-container">
+  <div class="container all-companies">
+    <div class="company-card text-center">
+      <h1 class="form-title"><%=@company.name %></h1>
+      <%= cl_image_tag @company.photo, :class => "style_image_company" %>
+      <div>
+        <%= link_to "Edit", edit_company_path(@company), class: "btn btn-primary" %>
+        <%= link_to "Delete Company", company_path(@company), method: :delete, data: { confirm: "Are you sure you want to delete this company?"}, class: "btn btn-danger" %>
+      </div>
+    </div>
+    <div class="company-card text-center">
+      <p class="name"><i class="fa fa-industry" aria-hidden="true"></i></i> Industry</p>
+      <p class="text"><%= @company.industry %></p>
+    </div>
+    <div class="company-card text-center">
+      <p class="name"><i class="fa fa-address-card-o" aria-hidden="true"></i> Description</p>
+      <p class="text"><%= @company.description %></p>
+    </div>
+    <div class="company-card text-center">
+      <p class="name"><i class="fa fa-home" aria-hidden="true"></i></i> Address</p>
+      <p class="text"><%= @company.address %></p>
+    </div>
+    <div class="company-card text-center">
+      <p class="name">Available Internships:</p>
+        <% @company.internships.each do |internship| %>
+          <p><%= link_to internship.name, company_internship_path(@company, internship) %></p>
+          <%= link_to "Edit", edit_company_internship_path(@company, internship), class: "btn btn-primary btn-sm" %>
+          <%= link_to "Delete Internship", company_internship_path(@company, internship), method: :delete, data: { confirm: "Are you sure you want to delete this internship?"}, class: "btn btn-danger btn-sm" %>
+          <%= link_to "Add Internship", new_company_internship_path(@company), class: "btn btn-primary btn-sm" %>
+          <%= link_to 'Applications', companymessages_path %>
+        <% end %>
+      </div>
   </div>
-  <%= link_to 'Applications', companymessages_path %>
-  <div id="map" style="width: 100%; height: 600px;"></div>
-
-  <% content_for(:after_js) do %>
-    <%= javascript_tag do %>
-      $(document).ready(function() {
-        var handler = Gmaps.build('Google');
-        handler.buildMap({ internal: { id: 'map' } }, function() {
-          markers = handler.addMarkers(<%= raw @hash.to_json %>);
-          handler.bounds.extendWith(markers);
-          handler.fitMapToBounds();
-          if (markers.length == 0) {
-            handler.getMap().setZoom(2);
-          } else if (markers.length == 1) {
-            handler.getMap().setZoom(14);
-          }
-        });
-      });
-    <% end %>
-  <% end %>
+  <div class="container">
+    <div class="map-card" id="map" style="width: 100%; height: 600px;"></div>
+  </div>
 </div>
+
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers(<%= raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(14);
+        }
+      });
+    });
+  <% end %>
+<% end %>
