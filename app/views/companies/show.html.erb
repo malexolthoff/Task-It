@@ -18,7 +18,7 @@
       <%= link_to "Delete Internship", company_internship_path(@company, internship), method: :delete, data: { confirm: "Are you sure you want to delete this internship?"}, class: "btn btn-danger" %>
     <% end %>
   </div>
-
+  <%= link_to 'Applications', companymessages_path %>
   <div id="map" style="width: 100%; height: 600px;"></div>
 
   <% content_for(:after_js) do %>
