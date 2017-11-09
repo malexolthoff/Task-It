@@ -1,7 +1,12 @@
 class CompaniesController < ApplicationController
 
   def index
-    @companies = Company.where.not(latitude: nil, longitude: nil)
+    # @companies = Company.where.not(latitude: nil, longitude: nil)
+    if params[:search]
+      @companies = Company.search(params[:search])
+    else
+      @companies = Company.where.not(latitude: nil, longitude: nil)
+    end
 
     @hash = Gmaps4rails.build_markers(@companies) do |company, marker|
       marker.lat company.latitude
