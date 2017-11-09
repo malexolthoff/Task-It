@@ -16,7 +16,7 @@ Company.destroy_all
     user_id: User.last.id,
     description: "Quincy news is a small media company dedicated to honesty, journalistic integrity, and social justice reporting.
     We are looking for hard working reporters who are deliberate and thoughtful in their craft",
-    photo: "https://cloudinary.com/console/media_library#/dialog/image/upload/unplashit_pe1v94"
+    photo: open("https://cloudinary.com/console/media_library#/dialog/image/upload/unplashit_pe1v94")
     )
 
   Company.create(
@@ -25,7 +25,7 @@ Company.destroy_all
     address: "103 N. Robinson Street, Bloomington, IL 61701",
     user_id: User.last.id,
     description: "We specialize in making beer and delicious food. Please stop by and try our specials.",
-    photo: "https://cloudinary.com/console/media_library#/dialog/image/upload/image_k0hait"
+    photo: open("https://cloudinary.com/console/media_library#/dialog/image/upload/image_k0hait")
     )
 
   Company.create(
@@ -36,7 +36,7 @@ Company.destroy_all
     description: "Hancock Internation is a small freight forwarder looking to improve your experience
     in exporting goods from the US to any country. As a small business, we care about our customers
     more than our competitors.",
-    photo: "https://res.cloudinary.com/ddsp5wihh/image/upload/v1510164667/oec_dcc98q.jpg"
+    photo: open("https://res.cloudinary.com/ddsp5wihh/image/upload/v1510164667/oec_dcc98q.jpg")
     )
 
   Company.create(
@@ -46,7 +46,7 @@ Company.destroy_all
     user_id: User.last.id,
     description: "We are a large logitics company helping you move freight. Originating in Taiwan,
     we specialize in imports from Asia and bring them right to your door.",
-    photo: "https://res.cloudinary.com/ddsp5wihh/image/upload/v1510164644/hancock_xu3pwk.jpg"
+    photo: open("https://res.cloudinary.com/ddsp5wihh/image/upload/v1510164644/hancock_xu3pwk.jpg")
     )
 
 

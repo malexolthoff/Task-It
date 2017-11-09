@@ -4,6 +4,9 @@ class ApplicationsController < ApplicationController
     # @internship = Internship.find(params[:internship_id])
     # @user = User.find(params[:user_id])
     # @applications = Application.all
+    # @internship = Internship.find(params[:internship_id])
+    # @user = User.find(params[:user_id])
+    # @applications = Application.all
     @messages = current_user.applications.messages
   end
   def company_messages
@@ -18,6 +21,7 @@ class ApplicationsController < ApplicationController
     @internship = Internship.find(params[:internship_id])
     @application.user_id = current_user.id
     @application.internship_id = @internship.id
+    @application.user_id = current_user.id
     @application.company = @company
     if @application.save
       redirect_to company_path(@company)

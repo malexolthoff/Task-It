@@ -1,15 +1,59 @@
-<%= simple_form_for [@user] do |f| %>
-  <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
-    <%= f.input :education %>
-    <%= f.input :email %>
+
+<div class="container">
+  <%= simple_form_for [@user] do |f| %>
+  <div class="user-card text-center">
+    <%= image_tag @user.photo, class: "style_image" %>
+      <%= f.input :photo %>
+      <%= f.input :photo_cache, as: :hidden %>
+
+    <div class="user-card text-center">
+    <p><%= f.input :first_name %><%= f.input :last_name %></p>
+    </div>
+
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="user-card text-center">
+    <p class="name"><i class="fa fa-address-card-o" aria-hidden="true"></i>
+ Bio</p>
+    <p><%= f.input :description %></p>
   </div>
+
+    <div class="user-card text-center">
+    <p class="name"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Education</p>
+    <p><%= f.input :education %></p>
+  </div>
+
+    <div class="user-card text-center">
+    <p class="name"><i class="fa fa-check-circle-o" aria-hidden="true"></i>
+ Experience</p>
+    <p><%= f.input :experience %></p>
+  </div>
+    <div class="user-card text-center">
+    <p class="name"><i class="fa fa-list-ul" aria-hidden="true"></i>
+ Skills</p>
+    <p><%= f.input :skills %></p>
+  </div>
+
+  <div class="user-card text-center">
+    <p class="name"><i class="fa fa-futbol-o" aria-hidden="true"></i>
+ Hobbies</p>
+    <p><%= f.input :hobbies %></p>
+  </div>
+
+  <div class="user-card text-center">
+    <p class="name"><i class="fa fa-address-card-o" aria-hidden="true"></i>
+Phone Number</p>
+    <p><%= f.input :phone %></p>
+  </div>
+
+  <div class="user-card text-center">
+    <p class="name"><i class="fa fa-envelope-o" aria-hidden="true"></i>
+ Email</p>
+    <p><%= f.input :email %></p>
+  </div>
+  <p><%= f.button :submit, class: "text-center" %> </p>
 <% end %>
+</div>
+
 
