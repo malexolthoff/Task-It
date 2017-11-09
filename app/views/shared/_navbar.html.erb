@@ -15,9 +15,9 @@
     <!-- Profile picture with dropdown list -->
     <div class="navbar-wagon-item">
       <div class="dropdown">
-        <%= avatar_url = current_user.facebook_picture_url || current_user.photo %>
+        <% avatar_url = current_user.facebook_picture_url || current_user.photo.url %>
         <% if avatar_url.nil? %>
-          <%= avatar_url = image_path("blank_avatar.png") %>
+          <% avatar_url = image_path("blank_avatar.png") %>
         <% end %>
 
       <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
