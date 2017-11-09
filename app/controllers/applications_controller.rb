@@ -1,9 +1,10 @@
 class ApplicationsController < ApplicationController
 
   def messages
-    @internship = Internship.find(params[:internship_id])
-    @user = User.find(params[:user_id])
-    @applications = Application.all
+    # @internship = Internship.find(params[:internship_id])
+    # @user = User.find(params[:user_id])
+    # @applications = Application.all
+    @messages = current_user.applications.messages
   end
   def company_messages
     @company = Company.find(params[:company_id])
@@ -15,6 +16,7 @@ class ApplicationsController < ApplicationController
     @company = Company.find(params[:company_id])
     @application = Application.new(application_params)
     @internship = Internship.find(params[:internship_id])
+    @application.user_id = current_user.id
     @application.internship_id = @internship.id
     @application.company = @company
     if @application.save

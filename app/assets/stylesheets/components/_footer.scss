@@ -1,15 +1,39 @@
 .footer {
-  background-color: black;
+  background-color: #2a2b2d;
   padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: 'Helvetica', 'sans-serif';
+  font-weight: lighter;
+  max-height: 300px;
+}
+
+.address-box {
+  max-width: 200px;
+  line-height: 3;
+  padding: 20px;
+  border-color: white;
+  line-height: .7;
+  border-color: white;
+  border-width: 2px;
+}
+
+.about-box {
+  max-width: 200px;
+  line-height: 3;
+  padding: 20px;
+  border-color: white;
+  line-height: 2;
 }
 
 .footer-header {
-  font-size: 25px;
-  color: rgb(220,220,220);
+  font-size: 17px;
+  color: rgba(255,255,255, 0.9);
 }
 
 .footer-text {
-  color: rgb(180,180,180);
-  font-size: 15px;
-  line-height: 10px;
+  color: rgba(255,255,255, 0.7);
+  font-size: 12px;
 }
+
