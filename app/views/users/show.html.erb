@@ -1,60 +1,60 @@
 <div class="container">
 
   <div class="user-card text-center">
-    <%= image_tag 'Lucia.JPG', :class => "style_image" %>
+    <%= image_tag @user.photo, :class => "style_image" %>
     <div class="user text-center">
-      <h1 class="user-name"><%=@user.first_name%><%=@user.last_name %>Lucia Mkhitarova</h1>
+      <h1 class="user-name"><%=@user.first_name%> <%=@user.last_name %></h1>
     </div>
     <div class="btn btn-primary">
       <%= link_to "Create a Company", new_company_path %>
     </div>
     <div class="btn btn-primary">
-      <%= link_to "Edit Profile", new_company_path %>
+      <%= link_to "Edit Profile", edit_user_path(@user) %>
     </div>
   </div>
 
 
+  <div class="user-card text-center">
+    <p class="name"><i class="fa fa-address-card-o" aria-hidden="true"></i>
+ Bio</p>
+    <p class="text"><%= @user.description %></p>
+  </div>
+
+    <div class="user-card text-center">
+    <p class="name"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Education</p>
+    <p class="text"><%= @user.education %> </p>
+  </div>
+
+    <div class="user-card text-center">
+    <p class="name"><i class="fa fa-check-circle-o" aria-hidden="true"></i>
+ Experience</p>
+    <p class="text"><%= @user.experience %></p>
+  </div>
+
+    <div class="user-card text-center">
+    <p class="name"><i class="fa fa-list-ul" aria-hidden="true"></i>
+ Skills</p>
+    <p class="text"><%= @user.skills %></p>
+  </div>
+
+    <div class="user-card text-center">
+    <p class="name"><i class="fa fa-futbol-o" aria-hidden="true"></i>
+ Hobbies</p>
+    <p class="text"><%= @user.hobbies %></p>
+  </div>
 
   <div class="user-card text-center">
     <p class="name"><i class="fa fa-address-card-o" aria-hidden="true"></i>
 Phone Number</p>
-    <p class="text"><%=@user.phone%>514-546-2478</p>
+    <p class="text"><%=@user.phone%></p>
   </div>
-  <div class="user-card text-center">
-    <p class="name"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Education</p>
-    <p class="text"><%= @user.education %> McGill University</p>
-  </div>
+
+
   <div class="user-card text-center">
     <p class="name"><i class="fa fa-envelope-o" aria-hidden="true"></i>
  Email</p>
     <p class="text"><%= @user.email %></p>
   </div>
-  <div class="user-card text-center">
-    <p class="name"><i class="fa fa-address-card-o" aria-hidden="true"></i>
- Description</p>
-    <p class="text"><%= @user.description %>Le Wagon Student</p>
-  </div>
-  <div class="user-card text-center">
-    <p class="name"><i class="fa fa-check-circle-o" aria-hidden="true"></i>
- Experience</p>
-    <p class="text"><%= @user.experience %>Have previous experience working in marketing and information systems.</p>
-  </div>
-  <div class="user-card text-center">
-    <p class="name"><i class="fa fa-futbol-o" aria-hidden="true"></i>
- Hobbies</p>
-    <p class="text"><%= @user.hobbies %>Have previous experience working in marketing and information systems.</p>
-  </div>
-  <div class="user-card text-center">
-    <p class="name"><i class="fa fa-list-ul" aria-hidden="true"></i>
- Skills</p>
-    <p class="text"><%= @user.skills %>Have previous experience working in marketing and information systems.</p>
-  </div>
-  <div class="user-card text-center">
-    <p class="name"><i class="fa fa-user" aria-hidden="true"></i>
- Role</p>
-    <p class="text"><%= @user.role %>Have previous experience working in marketing and information systems.</p>
-  </div>
-
 
 </div>
 

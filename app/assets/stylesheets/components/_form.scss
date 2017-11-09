@@ -1,5 +1,5 @@
 .form-body {
-  margin: 50px 500px 90px;
+  // margin: 50px 500px 90px;
   text-align: center;
   background-color: white;
   padding: 40px;
@@ -22,4 +22,8 @@ body.page-registrations-new {
   background-color: rgb(245,245,245);
   //background-color: rgba(136,202,254,0.4);
   // background-color: grey;
+}
+
+.form-group label {
+  font-weight: lighter;
 }

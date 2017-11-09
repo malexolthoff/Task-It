@@ -15,7 +15,7 @@
     <!-- Profile picture with dropdown list -->
     <div class="navbar-wagon-item">
       <div class="dropdown">
-      <% avatar_url = current_user.facebook_picture_url || 'Lucia.JPG' %>
+      <% avatar_url = current_user.facebook_picture_url || current_user.photo %>
       <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
       <%= current_user.email %>
       <% #avatar_url = "http://dk6kcyuwrpkrj.cloudfront.net/wp-content/uploads/sites/45/2014/05/avatar-blank.jpg" %>
