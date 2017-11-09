@@ -162,4 +162,13 @@ class Company < ApplicationRecord
     "Wireless",
     "Writing & Editing"
   ]
+
+  def self.search(query)
+    query.downcase!
+    if query
+      where("lower(industry) = ? OR lower(address) = ?", query, query)
+    else
+      find(:all)
+    end
+  end
 end
