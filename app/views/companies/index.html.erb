@@ -1,6 +1,16 @@
 
 <h2 class="internship-title">Available Internships</h2>
 
+<form action="/companies">
+            <div class="form-group">
+              <label for="industry">Please enter industry to search:</label>
+              <div class="box">
+                <input type="text" id="search" name="search">
+              </div>
+            </div>
+          <button id="submit" type="submit" class="btn btn-primary">Go</button>
+          </form>
+
 <div class="flex-container">
 <div class="companies">
     <%= render partial: 'company', collection: @companies %>
