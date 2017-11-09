@@ -8,6 +8,11 @@ class UsersController < ApplicationController
 
   def update
     @user.update(user_params)
+    if @user.save
+      redurect_to user_path(@user)
+    else
+      render :edit
+    end
   end
 
   private
