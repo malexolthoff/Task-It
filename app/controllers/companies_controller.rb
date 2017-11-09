@@ -23,16 +23,18 @@ class CompaniesController < ApplicationController
 
   def new
     @company = Company.new
+    authorize @company
   end
 
   def create
     @company = Company.create(company_params)
+    @company.user = current_user
     if @company.save
       redirect_to company_path(@company)
     else
       render :new
     end
-
+    authorize @company
   end
 
   def edit

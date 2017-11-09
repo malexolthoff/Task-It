@@ -16,12 +16,14 @@ class ApplicationsController < ApplicationController
     @application = Application.new(application_params)
     @internship = Internship.find(params[:internship_id])
     @application.internship_id = @internship.id
+    @application.user = current_user
     @application.company = @company
     if @application.save
       redirect_to company_path(@company)
     else
       render 'internships/show'
     end
+    authorize @application
   end
 
   private
