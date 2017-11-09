@@ -32,7 +32,7 @@ class CompaniesController < ApplicationController
 
   def create
     @company = Company.create(company_params)
-    @company.user = current_user
+    @company.user_id = current_user.id
     if @company.save
       redirect_to company_path(@company)
     else

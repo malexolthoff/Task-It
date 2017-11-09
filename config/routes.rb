@@ -18,5 +18,7 @@ Rails.application.routes.draw do
 
   get 'messages', to: 'applications#messages'
 
+  get 'companymessages', to: 'applications#company_messages'
+
 root 'pages#home'
 end
