@@ -5,9 +5,11 @@
     <div class="user text-center">
       <h1 class="user-name"><%=@user.first_name%> <%=@user.last_name %></h1>
     </div>
+    <% if current_user.company == nil %>
     <div class="btn btn-primary">
       <%= link_to "Create a Company", new_company_path %>
     </div>
+    <% end %>
     <div class="btn btn-danger">
       <%= link_to "Edit Profile", edit_user_path(@user) %>
     </div>

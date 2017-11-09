@@ -1,5 +1,23 @@
 
-<% @applications.each do |applications| %>
-  <p> <%= applications.message %></p>
+<% @applications.each do |application| %>
+
+
+
+<div class="message">
+  <div class="message-name">
+    <%= application.company.name %>
+    <%= application.created_at.strftime("%m/%d/%Y") %>
+  </div>
+  <div class="message-body">
+    <p>Application for: <%= application.internship.name %></p>
+    <p>
+      <%= application.message %>
+    </p>
+  </div>
+  <div class="message-status">
+    <p class="status pending">Pending</p>
+  </div>
+</div>
 
 <% end %>
+
