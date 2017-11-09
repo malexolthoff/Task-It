@@ -1,10 +1,13 @@
 .user-name {
- font-family: 'Pacifico', sans-serif;
+  font-family: 'Pacifico', cursive;
+  color: #88CAFE;
+  font-weight: 100;
 }
 
 .name {
-  color: rgba(0,0,0,6);
+  //color: rgba(0,0,0,6);
   font-weight: bold;
+  //color: #88CAFE;
 }
 
 .text {
@@ -32,8 +35,33 @@
   width: 300px;
   height: 300px;
   border-radius: 50%;
-  border: 3px solid #cccccc;
+  border: 2px solid #cccccc;
   display: block;
   margin: auto;
 }
+
+body.page-users-show {
+  background-color: rgb(245,245,245);
+  //background-color: rgba(136,202,254,0.4);
+  // background-color: grey;
+}
+
+.company-button {
+  padding: 20px;
+  border-radius: 3px;
+  background-color: black;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 

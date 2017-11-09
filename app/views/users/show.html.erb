@@ -1,12 +1,20 @@
 <div class="container">
 
-
-  <%= image_tag 'Lucia.JPG', :class => "style_image" %>
-
-
-  <div class="user text-center">
-    <h1 class="user-name"><%=@user.first_name%><%=@user.last_name %>Lucia Mkhitarova</h1>
+  <div class="user-card text-center">
+    <%= image_tag 'Lucia.JPG', :class => "style_image" %>
+    <div class="user text-center">
+      <h1 class="user-name"><%=@user.first_name%><%=@user.last_name %>Lucia Mkhitarova</h1>
+    </div>
+    <div class="btn btn-primary">
+      <%= link_to "Create a Company", new_company_path %>
+    </div>
+    <div class="btn btn-primary">
+      <%= link_to "Edit Profile", new_company_path %>
+    </div>
   </div>
+
+
+
   <div class="user-card text-center">
     <p class="name"><i class="fa fa-address-card-o" aria-hidden="true"></i>
 Phone Number</p>
@@ -46,6 +54,8 @@ Phone Number</p>
  Role</p>
     <p class="text"><%= @user.role %>Have previous experience working in marketing and information systems.</p>
   </div>
+
+
 </div>
 
-<%= link_to "Create a Company", new_company_path %>
+
