@@ -4,8 +4,10 @@
       <h1 class="form-title"><%=@company.name %></h1>
       <%= cl_image_tag @company.photo, :class => "style_image_company" %>
       <div>
-        <%= link_to "Edit", edit_company_path(@company), class: "btn btn-primary" %>
-        <%= link_to "Delete Company", company_path(@company), method: :delete, data: { confirm: "Are you sure you want to delete this company?"}, class: "btn btn-danger" %>
+        <% if current_user.company == @company %>
+          <%= link_to "Edit", edit_company_path(@company), class: "btn btn-primary" %>
+          <%= link_to "Delete Company", company_path(@company), method: :delete, data: { confirm: "Are you sure you want to delete this company?"}, class: "btn btn-danger" %>
+        <% end %>
       </div>
     </div>
     <div class="company-card text-center">
