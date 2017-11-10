@@ -39,6 +39,7 @@ class InternshipsController < ApplicationController
       redirect_to company_path(@company)
     else
       render :edit
+    end
   end
 
   def destroy
