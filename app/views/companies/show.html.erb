@@ -22,12 +22,16 @@
     </div>
     <div class="company-card text-center">
       <p class="name">Available Internships:</p>
-        <% @company.internships.each do |internship| %>
+        <% if !@company.internship.nil? %>
+        <% @company.internship.each do |internship| %>
           <p><%= link_to internship.name, company_internship_path(@company, internship) %></p>
           <%= link_to "Edit", edit_company_internship_path(@company, internship), class: "btn btn-primary btn-sm" %>
           <%= link_to "Delete Internship", company_internship_path(@company, internship), method: :delete, data: { confirm: "Are you sure you want to delete this internship?"}, class: "btn btn-danger btn-sm" %>
         <% end %>
+        <% end %>
+        <% if !current_user.company.nil? && current_user.company.internships.empty? %>
         <%= link_to "Add Internship", new_company_internship_path(@company), class: "btn btn-primary btn-sm" %>
+        <% end %>
       </div>
   </div>
   <div class="container">
