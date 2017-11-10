@@ -5,9 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-User.destroy_all
 Company.destroy_all
+Application.destroy_all
+Internship.destroy_all
+User.destroy_all
 
 
     user1 = User.create(
@@ -29,6 +30,11 @@ Company.destroy_all
     email: "test7@example.com",
     password: "bananas"
     )
+
+    user5 = User.create(
+      email: "test8@example.com",
+      password: "bananas"
+      )
 
   Company.create(
     name: "Quincy News",
@@ -78,7 +84,7 @@ Company.destroy_all
     a sensitive matter as the dog has IBS.",
     length: 5,
     hours: 40,
-    company_id: Company.find_by(name: "Quincy News").id
+    company: Company.find_by(name: "Quincy News")
     )
 
   Internship.create(
@@ -86,7 +92,7 @@ Company.destroy_all
     description: "We are looking for a responsibile individual who is willing to scan files into our database for us.",
     length: 10,
     hours: 15,
-    company_id: Company.find_by(name: "Hancock International").id
+    company: Company.find_by(name: "Hancock International")
     )
 
   Internship.create(
@@ -95,7 +101,7 @@ Company.destroy_all
     and bills of lading. We require you to be commited, well-organized, and responsible.",
     length: 6,
     hours: 20,
-    company_id: Company.find_by(name: "OEC Group").id
+    company: Company.find_by(name: "OEC Group")
     )
 
   Internship.create(
@@ -104,6 +110,26 @@ Company.destroy_all
     cuisine, is flexible, and willing to be available last minute.",
     length: 8,
     hours: 30,
-    company_id: Company.find_by(name: "Beer Nuts").id
+    company: Company.find_by(name: "Beer Nuts")
     )
 
+  Application.create(
+    message: "I would like to apply as a Doc Specialist for OEC group",
+    user: user5,
+    internship: Internship.find_by(name: "Documentation Specialist"),
+    company: Company.find_by(name: "OEC Group")
+    )
+
+  Application.create(
+    message: "I would like to apply for Hancock International",
+    user: user5,
+    internship: Internship.find_by(name: "File Scanner"),
+    company: Company.find_by(name: "Hancock International")
+    )
+
+  Application.create(
+    message: "I would like to apply for Beer nuts",
+    user: user5,
+    internship: Internship.find_by(name: "Dogwalker for CEO"),
+    company: Company.find_by(name: "Beer Nuts")
+    )

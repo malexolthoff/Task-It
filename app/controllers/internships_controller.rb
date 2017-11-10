@@ -32,6 +32,11 @@ class InternshipsController < ApplicationController
 
   def update
     @internship.update(internship_params)
+    if @internship.save
+      redirect_to company_path(@company)
+    else
+      render :edit
+    end
   end
 
   def destroy

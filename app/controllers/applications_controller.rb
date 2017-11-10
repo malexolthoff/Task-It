@@ -1,15 +1,12 @@
 class ApplicationsController < ApplicationController
   before_action :set_user, only: [:messages, :company_messages]
   def messages
-    @applications = Application.where("user_id = #{@user}")
+    @applications_outgoing = Application.where("user_id = #{@user}")
   end
   def company_messages
-    @company = Company.where("user_id = #{@user}")
-    @company_id = @company.ids
-    @internship = Internship.where("company_id = #{@company_id.first}")
-    @internship_id = @internship.ids
-    @applications = Application.where("internship_id = #{@internship_id.first}")
+    @applications_incoming = current_user.company.applications
   end
+
   def create
     @company = Company.find(params[:company_id])
     @application = Application.new(application_params)
