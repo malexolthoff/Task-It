@@ -1,6 +1,6 @@
 class Company < ApplicationRecord
   has_one :internship, dependent: :destroy
-  has_many :applications, dependent: :destroy
+  has_many :applications, through: :internship, dependent: :destroy
   belongs_to :user
   geocoded_by :address
   after_validation :geocode, if: :address_changed?

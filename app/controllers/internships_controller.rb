@@ -1,5 +1,5 @@
 class InternshipsController < ApplicationController
-  before_action :set_internship, only: [ :show, :delete, :destroy, :edit ]
+  before_action :set_internship, only: [ :show, :delete, :destroy, :edit, :update ]
   def index
     @internships = Internship.all
   end
@@ -35,6 +35,12 @@ class InternshipsController < ApplicationController
 
   def update
     @internship.update(internship_params)
+    @company = @internship.company
+    if @internship.save
+      redirect_to company_path(@company)
+    else
+      render :edit
+    end
   end
 
   def destroy
