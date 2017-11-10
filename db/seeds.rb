@@ -115,18 +115,21 @@ User.destroy_all
 
   Application.create(
     message: "I would like to apply as a Doc Specialist for OEC group",
-    user: User.last,
-    internship: Internship.find_by(name: "Documentation Specialist")
+    user: user5,
+    internship: Internship.find_by(name: "Documentation Specialist"),
+    company: Company.find_by(name: "OEC Group")
     )
 
   Application.create(
     message: "I would like to apply for Hancock International",
-    user: User.last,
-    internship: Internship.find_by(name: "File Scanner")
+    user: user5,
+    internship: Internship.find_by(name: "File Scanner"),
+    company: Company.find_by(name: "Hancock International")
     )
 
   Application.create(
     message: "I would like to apply for Beer nuts",
-    user: User.last,
-    internship: Internship.find_by(name: "Dogwalker for CEO")
+    user: user5,
+    internship: Internship.find_by(name: "Dogwalker for CEO"),
+    company: Company.find_by(name: "Beer Nuts")
     )
