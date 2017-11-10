@@ -5,10 +5,14 @@
     <div class="user text-center">
       <h1 class="user-name"><%=@user.first_name%> <%=@user.last_name %></h1>
     </div>
-    <% if current_user.company == nil %>
-    <div class="btn btn-primary">
-      <%= link_to "Add Your Company", new_company_path %>
-    </div>
+     <% if current_user.company == nil %>
+      <div class="btn btn-primary">
+        <%= link_to "Add Your Company", new_company_path %>
+       </div>
+      <% else %>
+       <div class="btn btn-primary">
+         <%= link_to "See Your Company", company_path(current_user.company) %>
+       </div>
     <% end %>
     <div class="btn btn-primary">
       <%= link_to "Edit Profile", edit_user_path(@user) %>
