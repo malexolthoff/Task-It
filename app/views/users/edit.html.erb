@@ -4,52 +4,55 @@
 
     <div class="user-card text-center">
       <%= image_tag @user.photo, class: "style_image" %>
-      <%= f.input :photo, class: "text-center" %>
-      <%= f.input :photo_cache, as: :hidden, class: "text-center" %>
+        <%= f.input :photo, class: "text-center" %>
+        <%= f.input :photo_cache, as: :hidden, class: "text-center" %>
       <p class="name"><%= f.input :first_name %><%= f.input :last_name %></p>
     </div>
 
     <div class="user-card text-center">
       <p class="name"><i class="fa fa-address-card-o" aria-hidden="true"></i>
    Bio</p>
-      <p><%= f.input :description %></p>
+      <p><%= f.input :description, label: false %></p>
     </div>
 
     <div class="user-card text-center">
       <p class="name"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Education</p>
-      <p><%= f.input :education %></p>
+      <p><%= f.input :education, label: false %></p>
     </div>
 
     <div class="user-card text-center">
       <p class="name"><i class="fa fa-check-circle-o" aria-hidden="true"></i>
    Experience</p>
-      <p><%= f.input :experience %></p>
+      <p><%= f.input :experience, label: false %></p>
     </div>
 
     <div class="user-card text-center">
       <p class="name"><i class="fa fa-list-ul" aria-hidden="true"></i>
    Skills</p>
-      <p><%= f.input :skills %></p>
+      <p><%= f.input :skills, label: false %></p>
     </div>
 
     <div class="user-card text-center">
       <p class="name"><i class="fa fa-futbol-o" aria-hidden="true"></i>
    Hobbies</p>
-      <p><%= f.input :hobbies %></p>
+      <p><%= f.input :hobbies, label: false %></p>
     </div>
 
     <div class="user-card text-center">
       <p class="name"><i class="fa fa-address-card-o" aria-hidden="true"></i>
   Phone Number</p>
-      <p><%= f.input :phone %></p>
+      <p><%= f.input :phone, label: false %></p>
     </div>
 
     <div class="user-card text-center">
       <p class="name"><i class="fa fa-envelope-o" aria-hidden="true"></i>
    Email</p>
-      <p><%= f.input :email %></p>
+      <p><%= f.input :email, label: false %></p>
     </div>
-    <p><%= f.button :submit, class: "text-center" %> </p>
+
+    <div class="text-center">
+      <p><%= f.button :submit, class: "text-center btn btn-primary" %> </p>
+    </div>
 
   <% end %>
 </div>

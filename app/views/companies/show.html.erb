@@ -4,8 +4,10 @@
       <h1 class="form-title"><%=@company.name %></h1>
       <%= cl_image_tag @company.photo, :class => "style_image_company" %>
       <div>
-        <%= link_to "Edit", edit_company_path(@company), class: "btn btn-primary" %>
-        <%= link_to "Delete Company", company_path(@company), method: :delete, data: { confirm: "Are you sure you want to delete this company?"}, class: "btn btn-danger" %>
+        <% if current_user.company == @company %>
+          <%= link_to "Edit", edit_company_path(@company), class: "btn btn-primary" %>
+          <%= link_to "Delete Company", company_path(@company), method: :delete, data: { confirm: "Are you sure you want to delete this company?"}, class: "btn btn-danger" %>
+        <% end %>
       </div>
     </div>
     <div class="company-card text-center">
@@ -22,13 +24,22 @@
     </div>
     <div class="company-card text-center">
       <p class="name">Available Internships:</p>
+        <% if current_user.company == @company %>
         <% if !@company.internship.nil? %>
-          <p><%= link_to @company.internship.name, company_internship_path(@company, @company.internship) %></p>
+          <%= link_to @company.internship.name, company_internship_path(@company, @company.internship) %>
+          <%= link_to "Edit", edit_company_internship_path(@company, @company.internship), class: "btn btn-primary btn-sm" %>
+          <%= link_to "Delete Internship", company_internship_path(@company, @company.internship), method: :delete, data: { confirm: "Are you sure you want to delete this internship?"}, class: "btn btn-danger btn-sm" %>
+
         <% end %>
         <% if !current_user.company.nil? && current_user.company.internship.nil? %>
           <%= link_to "Edit", edit_company_internship_path(@company, @company.internship), class: "btn btn-primary btn-sm" %>
           <%= link_to "Delete Internship", company_internship_path(@company, @company.internship), method: :delete, data: { confirm: "Are you sure you want to delete this internship?"}, class: "btn btn-danger btn-sm" %>
           <%= link_to "Add Internship", new_company_internship_path(@company), class: "btn btn-primary btn-sm" %>
+        <% end %>
+        <% else %>
+          <% if !@company.internship.nil? %>
+            <%= link_to @company.internship.name, company_internship_path(@company, @company.internship) %>
+          <% end %>
         <% end %>
       </div>
   </div>
