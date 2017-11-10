@@ -1,23 +1,22 @@
-
-<% @applications.each do |application| %>
-
-
-
-<div class="message">
-  <div class="message-name">
-    <%= application.company.name %>
-    <%= application.created_at.strftime("%m/%d/%Y") %>
-  </div>
-  <div class="message-body">
-    <p>Application for: <%= application.internship.name %></p>
-    <p>
-      <%= application.message %>
-    </p>
-  </div>
-  <div class="message-status">
-    <p class="status pending">Pending</p>
+<div class="messages-box">
+  <div class= "company-card">
+    <h1 class="internship-title">Messages</h1>
+    <% @applications.each do |application| %>
+      <div class="message">
+        <div class="message-name">
+          <p>@ <%= link_to application.company.name, company_path(application.company) %></p>
+          <%= cl_image_tag application.company.photo, :class => "style-image-company-message" %>
+        </div>
+        <div class="message-body">
+          <div class="message-body-text">
+            <p><span class="message-middle">Internship Title: </span><%= application.internship.name %></p>
+            <p><span class="message-middle">Message: </span><%= application.message %></p>
+          </div>
+        </div>
+        <div class="message-status">
+          <p class="status pending"><%= application.created_at.strftime("%m/%d/%Y") %></p>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
-
-<% end %>
-

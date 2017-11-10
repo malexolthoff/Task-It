@@ -33,7 +33,7 @@
     <div class="company-card text-center">
       <p class="name"><i class="fa fa-commenting-o" aria-hidden="true"></i></i> Message</p>
       <%= simple_form_for([@company, @internship, @application]) do |f| %>
-          <%= f.input :message %>
+          <%= f.input :message, label: false %>
 
           <%= f.submit class: "btn btn-primary" %>
         <% end %>
