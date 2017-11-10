@@ -1,8 +1,5 @@
 class InternshipsController < ApplicationController
   before_action :set_internship, only: [ :show, :delete, :destroy, :edit ]
-  def index
-    @internships = Internship.all
-  end
 
   def show
     @company = Company.find(params[:company_id])

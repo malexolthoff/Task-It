@@ -6,13 +6,13 @@
           <%= simple_form_for [@company, @internship] do |f| %>
             <%= f.error_notification %>
             <div class="form-inputs">
-              <%= f.input :name %>
-              <%= f.input :description %>
-              <%= f.input :length %>
-              <%= f.input :hours %>
+              <%= f.input :name, placeholder: 'Dish Washer' %>
+              <%= f.input :description, placeholder: 'Washing dishes at local restaurant' %>
+              <%= f.input :length, placeholder: '10 weeks' %>
+              <%= f.input :hours, placeholder: '15 hours per week' %>
             </div>
             <div class="form-actions">
-              <%= f.button :submit %>
+              <%= f.button :submit, class: "btn btn-primary" %>
             </div>
           <% end %>
         </div>
