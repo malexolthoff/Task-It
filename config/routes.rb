@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :internships, only: [:show]
+  resources :internships, only: [:show, :update]
   resources :users do
     get 'messages', to: 'applications#messages'
   end
