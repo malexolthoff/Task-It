@@ -32,13 +32,11 @@
 
         <% end %>
         <% if !current_user.company.nil? && current_user.company.internship.nil? %>
-          <%= link_to "Edit", edit_company_internship_path(@company, @company.internship), class: "btn btn-primary btn-sm" %>
-          <%= link_to "Delete Internship", company_internship_path(@company, @company.internship), method: :delete, data: { confirm: "Are you sure you want to delete this internship?"}, class: "btn btn-danger btn-sm" %>
           <%= link_to "Add Internship", new_company_internship_path(@company), class: "btn btn-primary btn-sm" %>
         <% end %>
         <% else %>
           <% if !@company.internship.nil? %>
-            <%= link_to @company.internship.name, company_internship_path(@company, @company.internship) %>
+          <%= link_to @company.internship.name, company_internship_path(@company, @company.internship) %>
           <% end %>
         <% end %>
       </div>
