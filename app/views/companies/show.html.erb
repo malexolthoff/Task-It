@@ -23,7 +23,7 @@
       <p class="text"><%= @company.address %></p>
     </div>
     <div class="company-card text-center">
-      <p class="name">Available Internships:</p>
+      <p class="name">Available Internship:</p>
         <% if current_user.company == @company %>
         <% if !@company.internship.nil? %>
           <%= link_to @company.internship.name, company_internship_path(@company, @company.internship) %>
